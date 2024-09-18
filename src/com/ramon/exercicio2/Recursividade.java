@@ -2,16 +2,25 @@ package com.ramon.exercicio2;
 
 public class Recursividade {
     public static void main(String[] args) {
-        fibonacci(0);
+        fibonacci();
     }
 
-    public static int fibonacci(int n) {
-        if (!(n <= 0)) {
-            System.out.println(n);
-            return 0;
+    public static void recursao(int n, int m) {
+        if (m > 100) {
+            return;
         }
-        int total = fibonacci(n - 1) + fibonacci(n - 2);
-        System.out.println(total);
-        return total;
+        System.out.println(m);
+
+        int aux = n + m;
+        m = n;
+        n = aux;
+
+        recursao(n, m);
+    }
+
+    public static void fibonacci() {
+        int n = 1;
+        int m = 0;
+        recursao(n, m);
     }
 }
